@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.chart-container {
+    margin: 20px 0;
+}
+
+nav {
+    background-color: #3B82F6;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #60A5FA;
+}
+
+.content {
+    padding: 20px;
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+h1, h2 {
+    color: #1E40AF;
+    border-bottom: 2px solid #60A5FA;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #1E40AF;
+    margin-top: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-left: 4px solid #60A5FA;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.issue {
+    margin-bottom: 15px;
+}
+
+.status-pass {
+    color: #10B981;
+    font-weight: bold;
+}
+
+.status-fail {
+    color: #EF4444;
+    font-weight: bold;
+}
+
+.recommendation {
+    color: #3B82F6;
+    font-style: italic;
+    margin-left: 20px;
+}
+
+.metrics, .risk, .approval {
+    background-color: #E0E7FF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="text"], input[type="date"] {
+    padding: 5px;
+    margin-left: 10px;
+    border: 1px solid #60A5FA;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+select {
+    padding: 5px;
+    margin-left: 10px;
+    border: 1px solid #60A5FA;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #60A5FA;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #3B82F6;
+    color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+    background-color: #E0E7FF;
+}
+
+.priority-high { color: #EF4444; }
+.priority-medium { color: #F59E0B; }
+.priority-low { color: #10B981; }
+.risk-high { background-color: #FEE2E2; }
+.risk-medium { background-color: #FEF3C7; }
+.risk-low { background-color: #D1FAE5; }
