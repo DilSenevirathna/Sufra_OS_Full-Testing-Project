@@ -1,390 +1,188 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {"results.csv":false};
-        var gk_fileData = {"results.csv":"timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect\r\n1752825314013,1786,HTTP Request,200,OK,User 1-3,text,true,,11798,183,23,23,https://dinemore.sufraos.com/,1780,0,154\r\n1752825313919,1898,HTTP Request,200,OK,User 1-2,text,true,,11798,183,23,23,https://dinemore.sufraos.com/,1894,0,206\r\n1752825313820,2064,HTTP Request,200,OK,User 1-1,text,true,,11798,183,22,22,https://dinemore.sufraos.com/,2061,0,302\r\n1752825314121,1988,HTTP Request,200,OK,User 1-4,text,true,,11798,183,24,24,https://dinemore.sufraos.com/,1980,0,171\r\n1752825314206,1964,HTTP Request,200,OK,User 1-5,text,true,,11798,183,23,23,https://dinemore.sufraos.com/,1952,0,156\r\n1752825314307,1940,HTTP Request,200,OK,User 1-6,text,true,,11798,183,23,23,https://dinemore.sufraos.com/,1937,0,159\r\n1752825314407,2080,HTTP Request,200,OK,User 1-7,text,true,,11798,183,24,24,https://dinemore.sufraos.com/,2080,0,165\r\n1752825314606,1931,HTTP Request,200,OK,User 1-9,text,true,,11798,183,24,24,https://dinemore.sufraos.com/,1929,0,177\r\n1752825314507,2046,HTTP Request,200,OK,User 1-8,text,true,,11798,183,23,23,https://dinemore.sufraos.com/,2043,0,175\r\n1752825315408,1149,HTTP Request,200,OK,User 1-17,text,true,,11798,183,22,22,https://dinemore.sufraos.com/,1146,0,169\r\n1752825314707,1886,HTTP Request,200,OK,User 1-10,text,true,,11798,183,21,21,https://dinemore.sufraos.com/,1884,0,170\r\n1752825315506,1144,HTTP Request,200,OK,User 1-18,text,true,,11798,183,21,21,https://dinemore.sufraos.com/,1140,0,163\r\n1752825314908,1842,HTTP Request,200,OK,User 1-12,text,true,,11798,183,21,21,https://dinemore.sufraos.com/,1838,0,162\r\n1752825315008,1798,HTTP Request,200,OK,User 1-13,text,true,,11798,183,20,20,https://dinemore.sufraos.com/,1793,0,149\r\n1752825314812,2039,HTTP Request,200,OK,User 1-11,text,true,,11798,183,20,20,https://dinemore.sufraos.com/,2035,0,140\r\n1752825315207,1787,HTTP Request,200,OK,User 1-15,text,true,,11798,183,20,20,https://dinemore.sufraos.com/,1785,0,147\r\n1752825315108,1960,HTTP Request,200,OK,User 1-14,text,true,,11798,183,20,20,https://dinemore.sufraos.com/,1958,0,165\r\n1752825315308,1765,HTTP Request,200,OK,User 1-16,text,true,,11798,183,19,19,https://dinemore.sufraos.com/,1765,0,163\r\n1752825316209,995,HTTP Request,200,OK,User 1-25,text,true,,11798,183,19,19,https://dinemore.sufraos.com/,991,0,162\r\n1752825315608,1703,HTTP Request,200,OK,User 1-19,text,true,,11798,183,20,20,https://dinemore.sufraos.com/,1698,0,164\r\n1752825316406,1018,HTTP Request,200,OK,User 1-27,text,true,,11798,183,20,20,https://dinemore.sufraos.com/,1006,0,173\r\n1752825315708,1779,HTTP Request,200,OK,User 1-20,text,true,,11798,183,19,19,https://dinemore.sufraos.com/,1774,0,159\r\n1752825316308,1221,HTTP Request,200,OK,User 1-26,text,true,,11798,183,19,19,https://dinemore.sufraos.com/,1216,0,143\r\n1752825315907,1698,HTTP Request,200,OK,User 1-22,text,true,,11798,183,19,19,https://dinemore.sufraos.com/,1680,0,156\r\n1752825315812,1809,HTTP Request,200,OK,User 1-21,text,true,,11798,183,18,18,https://dinemore.sufraos.com/,1808,0,157\r\n1752825316007,1773,HTTP Request,200,OK,User 1-23,text,true,,11798,183,18,18,https://dinemore.sufraos.com/,1760,0,151\r\n1752825316906,1007,HTTP Request,200,OK,User 1-32,text,true,,11798,183,19,19,https://dinemore.sufraos.com/,988,0,163\r\n1752825316106,1827,HTTP Request,200,OK,User 1-24,text,true,,11798,183,18,18,https://dinemore.sufraos.com/,1824,0,176\r\n1752825316706,1257,HTTP Request,200,OK,User 1-30,text,true,,11798,183,17,17,https://dinemore.sufraos.com/,1248,0,162\r\n1752825317207,754,HTTP Request,200,OK,User 1-35,text,true,,11798,183,17,17,https://dinemore.sufraos.com/,753,0,155\r\n1752825317006,975,HTTP Request,200,OK,User 1-33,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,973,0,155\r\n1752825317107,1029,HTTP Request,200,OK,User 1-34,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,1028,0,171\r\n1752825316506,1659,HTTP Request,200,OK,User 1-28,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,1658,0,165\r\n1752825317505,784,HTTP Request,200,OK,User 1-38,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,775,0,167\r\n1752825316606,1722,HTTP Request,200,OK,User 1-29,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,1715,0,146\r\n1752825316813,1724,HTTP Request,200,OK,User 1-31,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,1723,0,163\r\n1752825317606,982,HTTP Request,200,OK,User 1-39,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,978,0,183\r\n1752825317307,1329,HTTP Request,200,OK,User 1-36,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,1284,0,224\r\n1752825317407,1249,HTTP Request,200,OK,User 1-37,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,1244,0,166\r\n1752825317706,1025,HTTP Request,200,OK,User 1-40,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,1025,0,185\r\n1752825318005,840,HTTP Request,200,OK,User 1-43,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,838,0,171\r\n1752825318106,749,HTTP Request,200,OK,User 1-44,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,749,0,166\r\n1752825317905,1017,HTTP Request,200,OK,User 1-42,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,1014,0,170\r\n1752825318306,768,HTTP Request,200,OK,User 1-46,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,753,0,160\r\n1752825317818,1291,HTTP Request,200,OK,User 1-41,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,1287,0,194\r\n1752825318505,809,HTTP Request,200,OK,User 1-48,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,800,0,202\r\n1752825318606,844,HTTP Request,200,OK,User 1-49,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,833,0,246\r\n1752825318705,811,HTTP Request,200,OK,User 1-50,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,809,0,235\r\n1752825318205,1359,HTTP Request,200,OK,User 1-45,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,1293,0,160\r\n1752825318406,1174,HTTP Request,200,OK,User 1-47,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,1173,0,146\r\n1752825318810,779,HTTP Request,200,OK,User 1-51,text,true,,11798,183,11,11,https://dinemore.sufraos.com/,772,0,181\r\n1752825319006,740,HTTP Request,200,OK,User 1-53,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,739,0,180\r\n1752825319108,797,HTTP Request,200,OK,User 1-54,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,768,0,179\r\n1752825319209,832,HTTP Request,200,OK,User 1-55,text,true,,11805,183,13,13,https://dinemore.sufraos.com/,816,0,178\r\n1752825319308,768,HTTP Request,200,OK,User 1-56,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,763,0,181\r\n1752825318906,1254,HTTP Request,200,OK,User 1-52,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,1253,0,184\r\n1752825319408,760,HTTP Request,200,OK,User 1-57,text,true,,11798,183,11,11,https://dinemore.sufraos.com/,755,0,162\r\n1752825319506,798,HTTP Request,200,OK,User 1-58,text,true,,11798,183,11,11,https://dinemore.sufraos.com/,797,0,199\r\n1752825319606,1244,HTTP Request,200,OK,User 1-59,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,1240,0,172\r\n1752825319706,1241,HTTP Request,200,OK,User 1-60,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,1238,0,167\r\n1752825319810,1278,HTTP Request,200,OK,User 1-61,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,1275,0,171\r\n1752825319907,1218,HTTP Request,200,OK,User 1-62,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,1201,0,160\r\n1752825320005,1236,HTTP Request,200,OK,User 1-63,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,1234,0,140\r\n1752825320507,883,HTTP Request,200,OK,User 1-68,text,true,,11798,183,16,16,https://dinemore.sufraos.com/,879,0,179\r\n1752825320615,776,HTTP Request,200,OK,User 1-69,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,775,0,162\r\n1752825320408,1010,HTTP Request,200,OK,User 1-67,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,1007,0,171\r\n1752825320710,750,HTTP Request,200,OK,User 1-70,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,746,0,152\r\n1752825320907,767,HTTP Request,200,OK,User 1-72,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,753,0,153\r\n1752825321006,782,HTTP Request,200,OK,User 1-73,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,769,0,185\r\n1752825320819,1006,HTTP Request,200,OK,User 1-71,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,990,0,161\r\n1752825320106,1739,HTTP Request,200,OK,User 1-64,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,1738,0,159\r\n1752825321108,839,HTTP Request,200,OK,User 1-74,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,838,0,190\r\n1752825320206,1745,HTTP Request,200,OK,User 1-65,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,1740,0,171\r\n1752825320307,1679,HTTP Request,200,OK,User 1-66,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,1674,0,167\r\n1752825321207,806,HTTP Request,200,OK,User 1-75,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,806,0,216\r\n1752825321307,812,HTTP Request,200,OK,User 1-76,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,810,0,204\r\n1752825321509,785,HTTP Request,200,OK,User 1-78,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,773,0,174\r\n1752825321407,953,HTTP Request,200,OK,User 1-77,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,950,0,146\r\n1752825321608,756,HTTP Request,200,OK,User 1-79,text,true,,11798,183,11,11,https://dinemore.sufraos.com/,753,0,169\r\n1752825321707,764,HTTP Request,200,OK,User 1-80,text,true,,11798,183,11,11,https://dinemore.sufraos.com/,762,0,169\r\n1752825321811,848,HTTP Request,200,OK,User 1-81,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,844,0,159\r\n1752825321907,783,HTTP Request,200,OK,User 1-82,text,true,,11798,183,11,11,https://dinemore.sufraos.com/,768,0,194\r\n1752825322007,1006,HTTP Request,200,OK,User 1-83,text,true,,11811,183,14,14,https://dinemore.sufraos.com/,993,0,220\r\n1752825322106,1081,HTTP Request,200,OK,User 1-84,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,1078,0,210\r\n1752825322307,978,HTTP Request,200,OK,User 1-86,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,975,0,147\r\n1752825322508,954,HTTP Request,200,OK,User 1-88,text,true,,11798,183,15,15,https://dinemore.sufraos.com/,949,0,235\r\n1752825322206,1260,HTTP Request,200,OK,User 1-85,text,true,,11798,183,14,14,https://dinemore.sufraos.com/,1256,0,149\r\n1752825322817,794,HTTP Request,200,OK,User 1-91,text,true,,11798,183,13,13,https://dinemore.sufraos.com/,790,0,154\r\n1752825322706,999,HTTP Request,200,OK,User 1-90,text,true,,11798,183,12,12,https://dinemore.sufraos.com/,995,0,177\r\n1752825323007,813,HTTP Request,200,OK,User 1-93,text,true,,11798,183,11,11,https://dinemore.sufraos.com/,798,0,176\r\n1752825323108,877,HTTP Request,200,OK,User 1-94,text,true,,11798,183,10,10,https://dinemore.sufraos.com/,757,0,170\r\n1752825322408,1591,HTTP Request,200,OK,User 1-87,text,true,,11798,183,9,9,https://dinemore.sufraos.com/,1577,0,159\r\n1752825323207,797,HTTP Request,200,OK,User 1-95,text,true,,11798,183,8,8,https://dinemore.sufraos.com/,797,0,161\r\n1752825322607,1427,HTTP Request,200,OK,User 1-89,text,true,,11798,183,7,7,https://dinemore.sufraos.com/,1424,0,214\r\n1752825322907,1205,HTTP Request,200,OK,User 1-92,text,true,,11798,183,6,6,https://dinemore.sufraos.com/,1205,0,150\r\n1752825323408,756,HTTP Request,200,OK,User 1-97,text,true,,11798,183,5,5,https://dinemore.sufraos.com/,752,0,174\r\n1752825323307,992,HTTP Request,200,OK,User 1-96,text,true,,11798,183,4,4,https://dinemore.sufraos.com/,991,0,164\r\n1752825323508,829,HTTP Request,200,OK,User 1-98,text,true,,11798,183,3,3,https://dinemore.sufraos.com/,827,0,180\r\n1752825323608,986,HTTP Request,200,OK,User 1-99,text,true,,11798,183,2,2,https://dinemore.sufraos.com/,981,0,245\r\n1752825323718,919,HTTP Request,200,OK,User 1-100,text,true,,11798,183,1,1,https://dinemore.sufraos.com/,917,0,329\r\n"};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QA Report - Sufra OS</title>
-    <style>
-        body {
-            background-color: #F9FAFB;
-            color: #374151;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        nav {
-            background-color: #3B82F6;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            color: #FFFFFF;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #60A5FA;
-        }
-        .content {
-            padding: 20px;
-            display: none;
-        }
-        .content.active {
-            display: block;
-        }
-        h1, h2 {
-            color: #1E40AF;
-            border-bottom: 2px solid #60A5FA;
-            padding-bottom: 5px;
-        }
-        h3 {
-            color: #1E40AF;
-            margin-top: 20px;
-        }
-        .section {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #FFFFFF;
-            border-left: 4px solid #60A5FA;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .issue {
-            margin-bottom: 15px;
-        }
-        .status-pass {
-            color: #10B981;
-            font-weight: bold;
-        }
-        .status-fail {
-            color: #EF4444;
-            font-weight: bold;
-        }
-        .recommendation {
-            color: #3B82F6;
-            font-style: italic;
-            margin-left: 20px;
-        }
-        .metrics, .risk {
-            background-color: #E0E7FF;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .approval {
-            background-color: #E0E7FF;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        input[type="text"], input[type="date"] {
-            padding: 5px;
-            margin-left: 10px;
-            border: 1px solid #60A5FA;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        select {
-            padding: 5px;
-            margin-left: 10px;
-            border: 1px solid #60A5FA;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            border: 1px solid #60A5FA;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #3B82F6;
-            color: #FFFFFF;
-        }
-        tr:nth-child(even) {
-            background-color: #E0E7FF;
-        }
-        .priority-high { color: #EF4444; }
-        .priority-medium { color: #F59E0B; }
-        .priority-low { color: #10B981; }
-        .risk-high { background-color: #FEE2E2; }
-        .risk-medium { background-color: #FEF3C7; }
-        .risk-low { background-color: #D1FAE5; }
-    </style>
-    <script>
-        function showPage(pageId) {
-            const contents = document.getElementsByClassName('content');
-            for (let content of contents) {
-                content.classList.remove('active');
-            }
-            document.getElementById(pageId).classList.add('active');
-        }
-        // Load QA Report page by default
-        window.onload = function() {
-            showPage('qaReport');
-        };
-    </script>
+    <title>QA Performance Report</title>
+    <!-- Including necessary libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+    <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chrono-node/1.3.11/chrono.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.15.0/Recharts.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="dataProcessor.js"></script>
 </head>
-<body>
+<body class="bg-gray-100">
      <nav>
         <a href="index.html" style="color: #ffffff; background-color: #007bff; padding: 6px 12px; border-radius: 4px; font-weight: bold; text-decoration: none;">QA Report</a>
 <a href="testingsummary.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Testing Summary</a>
-<a href="performancetesting.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Performance Testing</a>
+<a href="performanceTesting.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Performance Testing</a>
 
     </nav>
+    <div id="root"></div>
 
+    <script type="text/babel">
+        const { createRoot } = ReactDOM;
+        const root = createRoot(document.getElementById('root'));
 
+        const abbreviateNumber = (num) => {
+            if (isNaN(num) || num === null) return '0';
+            const absNum = Math.abs(num);
+            if (absNum >= 1e6) return (num / 1e6).toFixed(1) + 'M';
+            if (absNum >= 1e3) return (num / 1e3).toFixed(1) + 'K';
+            return num.toString();
+        };
 
+        const Report = () => {
+            const [data, setData] = React.useState(null);
+            const [loading, setLoading] = React.useState(true);
 
-        
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QA Performance Report</title>
-  <!-- Including necessary libraries for React, Recharts, and Tailwind CSS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
-  <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chrono-node/1.3.11/chrono.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.15.0/Recharts.min.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; }
-    .chart-container { margin: 20px 0; }
-  </style>
-</head>
-<body class="bg-gray-100">
-  <div id="root"></div>
+            React.useEffect(() => {
+                const csv = loadFileData('results.csv');
+                Papa.parse(csv, {
+                    header: true,
+                    skipEmptyLines: true,
+                    dynamicTyping: false,
+                    transformHeader: (header) => header.trim().replace(/^"|"$/g, ''),
+                    transform: (value, header) => {
+                        let cleaned = value.trim().replace(/^"|"$/g, '');
+                        if (['elapsed', 'bytes', 'sentBytes', 'grpThreads', 'allThreads', 'Latency', 'IdleTime', 'Connect'].includes(header)) {
+                            return parseFloat(cleaned) || 0;
+                        }
+                        if (header === 'timeStamp') {
+                            const date = chrono.parseDate(cleaned);
+                            return date ? date.toISOString() : cleaned;
+                        }
+                        return cleaned;
+                    },
+                    complete: (results) => {
+                        const cleanedData = results.data.map(row => ({
+                            ...row,
+                            timeStamp: new Date(row['timeStamp']).getTime(),
+                            elapsed: parseFloat(row['elapsed']) || 0,
+                            Latency: parseFloat(row['Latency']) || 0,
+                            Connect: parseFloat(row['Connect']) || 0,
+                            threadName: row['threadName'] || '',
+                        })).filter(row => row['elapsed'] > 0 && row['Latency'] > 0);
+                        setData(cleanedData);
+                        setLoading(false);
+                    },
+                    error: (err) => {
+                        console.error('Error parsing CSV:', err);
+                        setLoading(false);
+                    }
+                });
+            }, []);
 
-  <script type="text/babel">
-    // Setting up React root
-    const { createRoot } = ReactDOM;
-    const root = createRoot(document.getElementById('root'));
-
-    // Defining numerical abbreviation function
-    const abbreviateNumber = (num) => {
-      if (isNaN(num) || num === null) return '0';
-      const absNum = Math.abs(num);
-      if (absNum >= 1e6) return (num / 1e6).toFixed(1) + 'M';
-      if (absNum >= 1e3) return (num / 1e3).toFixed(1) + 'K';
-      return num.toString();
-    };
-
-    // Creating main Report component
-    const Report = () => {
-      const [data, setData] = React.useState(null);
-      const [loading, setLoading] = React.useState(true);
-
-      // Loading and processing CSV data
-      React.useEffect(() => {
-        const csv = loadFileData('results.csv');
-        Papa.parse(csv, {
-          header: true,
-          skipEmptyLines: true,
-          dynamicTyping: false,
-          transformHeader: (header) => header.trim().replace(/^"|"$/g, ''),
-          transform: (value, header) => {
-            let cleaned = value.trim().replace(/^"|"$/g, '');
-            if (['elapsed', 'bytes', 'sentBytes', 'grpThreads', 'allThreads', 'Latency', 'IdleTime', 'Connect'].includes(header)) {
-              return parseFloat(cleaned) || 0;
+            if (loading) {
+                return (
+                    <div className="flex justify-center items-center h-screen">
+                        <p className="text-xl text-gray-600">Loading...</p>
+                    </div>
+                );
             }
-            if (header === 'timeStamp') {
-              const date = chrono.parseDate(cleaned);
-              return date ? date.toISOString() : cleaned;
+
+            const responseTimes = data.map(row => row['elapsed']);
+            const avgResponseTime = responseTimes.reduce((sum, val) => sum + val, 0) / responseTimes.length;
+            const minResponseTime = Math.min(...responseTimes);
+            const maxResponseTime = Math.max(...responseTimes);
+            const successRate = (data.filter(row => row['success'] === 'true').length / data.length * 100).toFixed(2);
+            const avgLatency = data.reduce((sum, row) => sum + row['Latency'], 0) / data.length;
+            const avgConnectTime = data.reduce((sum, row) => sum + row['Connect'], 0) / data.length;
+
+            const histogramData = [];
+            const binSize = 100;
+            const minTime = Math.floor(minResponseTime / binSize) * binSize;
+            const maxTime = Math.ceil(maxResponseTime / binSize) * binSize;
+            for (let i = minTime; i <= maxTime; i += binSize) {
+                histogramData.push({
+                    bin: i,
+                    count: responseTimes.filter(t => t >= i && t < i + binSize).length
+                });
             }
-            return cleaned;
-          },
-          complete: (results) => {
-            const cleanedData = results.data.map(row => ({
-              ...row,
-              timeStamp: new Date(row['timeStamp']).getTime(),
-              elapsed: parseFloat(row['elapsed']) || 0,
-              Latency: parseFloat(row['Latency']) || 0,
-              Connect: parseFloat(row['Connect']) || 0,
-              threadName: row['threadName'] || '',
-            })).filter(row => row['elapsed'] > 0 && row['Latency'] > 0);
-            setData(cleanedData);
-            setLoading(false);
-          },
-          error: (err) => {
-            console.error('Error parsing CSV:', err);
-            setLoading(false);
-          }
-        });
-      }, []);
 
-      // Rendering loading state
-      if (loading) {
-        return (
-          <div className="flex justify-center items-center h-screen">
-            <p className="text-xl text-gray-600">Loading...</p>
-          </div>
-        );
-      }
+            const threadPerformance = data.reduce((acc, row) => {
+                const thread = row['threadName'];
+                if (!acc[thread]) {
+                    acc[thread] = { totalTime: 0, count: 0 };
+                }
+                acc[thread].totalTime += row['elapsed'];
+                acc[thread].count += 1;
+                return acc;
+            }, {});
+            const threadData = Object.keys(threadPerformance).map(thread => ({
+                thread,
+                avgTime: threadPerformance[thread].totalTime / threadPerformance[thread].count
+            }));
 
-      // Calculating metrics
-      const responseTimes = data.map(row => row['elapsed']);
-      const avgResponseTime = responseTimes.reduce((sum, val) => sum + val, 0) / responseTimes.length;
-      const minResponseTime = Math.min(...responseTimes);
-      const maxResponseTime = Math.max(...responseTimes);
-      const successRate = (data.filter(row => row['success'] === 'true').length / data.length * 100).toFixed(2);
-      const avgLatency = data.reduce((sum, row) => sum + row['Latency'], 0) / data.length;
-      const avgConnectTime = data.reduce((sum, row) => sum + row['Connect'], 0) / data.length;
+            return (
+                <div className="container mx-auto p-4">
+                    <br /><br />
+                    <h1 className="text-3xl font-bold mb-4 text-left text-blue-800">Performance Test Report</h1>
+                    <section className="mb-8 bg-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Summary</h2>
+                        <p className="text-gray-700">This report analyzes the performance of HTTP requests to <a href="https://dinemore.sufraos.com/" className="text-blue-600">https://dinemore.sufraos.com/</a> across multiple user threads. Key metrics include response times, latency, and connection times.</p>
+                        <ul className="list-disc pl-6 mt-2 text-gray-700">
+                            <li>Average Response Time: {avgResponseTime.toFixed(2)} ms</li>
+                            <li>Minimum Response Time: {minResponseTime} ms</li>
+                            <li>Maximum Response Time: {maxResponseTime} ms</li>
+                            <li>Success Rate: {successRate}%</li>
+                            <li>Average Latency: {avgLatency.toFixed(2)} ms</li>
+                            <li>Average Connect Time: {avgConnectTime.toFixed(2)} ms</li>
+                        </ul>
+                    </section>
+                    <section className="chart-container bg-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Response Time Distribution</h2>
+                        <p className="text-gray-700 mb-4">This histogram shows the distribution of response times, highlighting how often certain response time ranges occur. Interestingly, there is a noticeable cluster of response times around 700-800 ms, suggesting a significant portion of requests are processed very quickly, possibly due to caching or optimized server responses.</p>
+                        <Recharts.ResponsiveContainer width="100%" height={400}>
+                            <Recharts.BarChart data={histogramData}>
+                                <Recharts.CartesianGrid strokeDasharray="3 3" />
+                                <Recharts.XAxis dataKey="bin" label={{ value: 'Response Time (ms)', position: 'bottom', offset: 0 }} />
+                                <Recharts.YAxis label={{ value: 'Frequency', angle: -90, position: 'left', offset: -10 }} />
+                                <Recharts.Tooltip />
+                                <Recharts.Bar dataKey="count" fill="#3B82F6" />
+                            </Recharts.BarChart>
+                        </Recharts.ResponsiveContainer>
+                    </section>
+                    <section className="chart-container bg-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Average Response Time by Thread</h2>
+                        <p className="text-gray-700 mb-4">This chart displays the average response time per user thread, allowing us to identify any threads with unusually high or low performance. Notably, some threads (e.g., User 1-35, User 1-44) consistently show response times below 800 ms, which could indicate efficient handling or lighter request loads.</p>
+                        <Recharts.ResponsiveContainer width="100%" height={400}>
+                            <Recharts.BarChart data={threadData}>
+                                <Recharts.CartesianGrid strokeDasharray="3 3" />
+                                <Recharts.XAxis dataKey="thread" label={{ value: 'Thread', position: 'bottom', offset: 0 }} tick={false} />
+                                <Recharts.YAxis label={{ value: 'Avg Response Time (ms)', angle: -90, position: 'left', offset: -10 }} />
+                                <Recharts.Tooltip />
+                                <Recharts.Bar dataKey="avgTime" fill="#10B981" />
+                            </Recharts.BarChart>
+                        </Recharts.ResponsiveContainer>
+                    </section>
+                    <section className="chart-container bg-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Response Time Over Time</h2>
+                        <p className="text-gray-700 mb-4">This line chart illustrates how response times vary over the test duration, helping identify trends or spikes in performance.</p>
+                        <Recharts.ResponsiveContainer width="100%" height={400}>
+                            <Recharts.LineChart data={data}>
+                                <Recharts.CartesianGrid strokeDasharray="3 3" />
+                                <Recharts.XAxis dataKey="timeStamp" tickFormatter={(ts) => new Date(ts).toLocaleTimeString()} label={{ value: 'Time', position: 'bottom', offset: 0 }} />
+                                <Recharts.YAxis label={{ value: 'Response Time (ms)', angle: -90, position: 'left', offset: -10 }} />
+                                <Recharts.Tooltip formatter={(value) => `${value} ms`} labelFormatter={(ts) => new Date(ts).toLocaleTimeString()} />
+                                <Recharts.Line type="monotone" dataKey="elapsed" stroke="#EF4444" dot={false} />
+                            </Recharts.LineChart>
+                        </Recharts.ResponsiveContainer>
+                    </section>
+                    <section className="mb-8 bg-white p-6 rounded-lg shadow-md">
+                        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Conclusion</h2>
+                        <p className="text-gray-700">The performance test results indicate a robust system with a 100% success rate for all HTTP requests to <a href="https://dinemore.sufraos.com/" className="text-blue-600">https://dinemore.sufraos.com/</a>. The average response time of {avgResponseTime.toFixed(2)} ms and a significant cluster of responses around 700-800 ms suggest efficient server performance, possibly due to caching mechanisms. However, some threads exhibited higher response times (up to {maxResponseTime} ms), which may warrant further investigation into potential bottlenecks or server load distribution. Overall, the system handles concurrent user requests well, with low connect times and consistent latency.</p>
+                    </section>
+                </div>
+            );
+        };
 
-      // Aggregating data for histogram
-      const histogramData = [];
-      const binSize = 100; // 100ms bins
-      const minTime = Math.floor(minResponseTime / binSize) * binSize;
-      const maxTime = Math.ceil(maxResponseTime / binSize) * binSize;
-      for (let i = minTime; i <= maxTime; i += binSize) {
-        histogramData.push({
-          bin: i,
-          count: responseTimes.filter(t => t >= i && t < i + binSize).length
-        });
-      }
-
-      // Preparing data for thread performance
-      const threadPerformance = data.reduce((acc, row) => {
-        const thread = row['threadName'];
-        if (!acc[thread]) {
-          acc[thread] = { totalTime: 0, count: 0 };
-        }
-        acc[thread].totalTime += row['elapsed'];
-        acc[thread].count += 1;
-        return acc;
-      }, {});
-      const threadData = Object.keys(threadPerformance).map(thread => ({
-        thread,
-        avgTime: threadPerformance[thread].totalTime / threadPerformance[thread].count
-      }));
-
-      // Rendering report
-      return (
-        <div className="container mx-auto p-4">
-          <br></br>
-                    <br></br>
-          <h1 className="text-3xl font-bold mb-4 text-left text-blue-800">Performance Test Report</h1>
-          
-          {/* Displaying summary */}
-          <section className="mb-8 bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Summary</h2>
-            <p className="text-gray-700">This report analyzes the performance of HTTP requests to <a href="https://dinemore.sufraos.com/" className="text-blue-600">https://dinemore.sufraos.com/</a> across multiple user threads. Key metrics include response times, latency, and connection times.</p>
-            <ul className="list-disc pl-6 mt-2 text-gray-700">
-              <li>Average Response Time: {avgResponseTime.toFixed(2)} ms</li>
-              <li>Minimum Response Time: {minResponseTime} ms</li>
-              <li>Maximum Response Time: {maxResponseTime} ms</li>
-              <li>Success Rate: {successRate}%</li>
-              <li>Average Latency: {avgLatency.toFixed(2)} ms</li>
-              <li>Average Connect Time: {avgConnectTime.toFixed(2)} ms</li>
-            </ul>
-          </section>
-
-          {/* Rendering response time distribution */}
-          <section className="chart-container bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Response Time Distribution</h2>
-            <p className="text-gray-700 mb-4">This histogram shows the distribution of response times, highlighting how often certain response time ranges occur. Interestingly, there is a noticeable cluster of response times around 700-800 ms, suggesting a significant portion of requests are processed very quickly, possibly due to caching or optimized server responses.</p>
-            <Recharts.ResponsiveContainer width="100%" height={400}>
-              <Recharts.BarChart data={histogramData}>
-                <Recharts.CartesianGrid strokeDasharray="3 3" />
-                <Recharts.XAxis dataKey="bin" label={{ value: 'Response Time (ms)', position: 'bottom', offset: 0 }} />
-                <Recharts.YAxis label={{ value: 'Frequency', angle: -90, position: 'left', offset: -10 }} />
-                <Recharts.Tooltip />
-                <Recharts.Bar dataKey="count" fill="#3B82F6" />
-              </Recharts.BarChart>
-            </Recharts.ResponsiveContainer>
-          </section>
-
-          {/* Rendering thread performance */}
-          <section className="chart-container bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Average Response Time by Thread</h2>
-            <p className="text-gray-700 mb-4">This chart displays the average response time per user thread, allowing us to identify any threads with unusually high or low performance. Notably, some threads (e.g., User 1-35, User 1-44) consistently show response times below 800 ms, which could indicate efficient handling or lighter request loads.</p>
-            <Recharts.ResponsiveContainer width="100%" height={400}>
-              <Recharts.BarChart data={threadData}>
-                <Recharts.CartesianGrid strokeDasharray="3 3" />
-                <Recharts.XAxis dataKey="thread" label={{ value: 'Thread', position: 'bottom', offset: 0 }} tick={false} />
-                <Recharts.YAxis label={{ value: 'Avg Response Time (ms)', angle: -90, position: 'left', offset: -10 }} />
-                <Recharts.Tooltip />
-                <Recharts.Bar dataKey="avgTime" fill="#10B981" />
-              </Recharts.BarChart>
-            </Recharts.ResponsiveContainer>
-          </section>
-
-          {/* Rendering response time over time */}
-          <section className="chart-container bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Response Time Over Time</h2>
-            <p className="text-gray-700 mb-4">This line chart illustrates how response times vary over the test duration, helping identify trends or spikes in performance.</p>
-            <Recharts.ResponsiveContainer width="100%" height={400}>
-              <Recharts.LineChart data={data}>
-                <Recharts.CartesianGrid strokeDasharray="3 3" />
-                <Recharts.XAxis dataKey="timeStamp" tickFormatter={(ts) => new Date(ts).toLocaleTimeString()} label={{ value: 'Time', position: 'bottom', offset: 0 }} />
-                <Recharts.YAxis label={{ value: 'Response Time (ms)', angle: -90, position: 'left', offset: -10 }} />
-                <Recharts.Tooltip formatter={(value) => `${value} ms`} labelFormatter={(ts) => new Date(ts).toLocaleTimeString()} />
-                <Recharts.Line type="monotone" dataKey="elapsed" stroke="#EF4444" dot={false} />
-              </Recharts.LineChart>
-            </Recharts.ResponsiveContainer>
-          </section>
-
-          {/* Displaying conclusion */}
-          <section className="mb-8 bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Conclusion</h2>
-            <p className="text-gray-700">The performance test results indicate a robust system with a 100% success rate for all HTTP requests to <a href="https://dinemore.sufraos.com/" className="text-blue-600">https://dinemore.sufraos.com/</a>. The average response time of {avgResponseTime.toFixed(2)} ms and a significant cluster of responses around 700-800 ms suggest efficient server performance, possibly due to caching mechanisms. However, some threads exhibited higher response times (up to {maxResponseTime} ms), which may warrant further investigation into potential bottlenecks or server load distribution. Overall, the system handles concurrent user requests well, with low connect times and consistent latency.</p>
-          </section>
-        </div>
-      );
-    };
-
-    // Rendering the report
-    root.render(<Report />);
-  </script>
+        root.render(<Report />);
+    </script>
 </body>
 </html>
