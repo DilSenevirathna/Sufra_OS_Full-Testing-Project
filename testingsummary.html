@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Report - Sufra OS</title>
+    <style>
+        body {
+            background-color: #F9FAFB;
+            color: #374151;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #3B82F6;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #60A5FA;
+        }
+        .content {
+            padding: 20px;
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        h1, h2 {
+            color: #1E40AF;
+            border-bottom: 2px solid #60A5FA;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #1E40AF;
+            margin-top: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #FFFFFF;
+            border-left: 4px solid #60A5FA;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .issue {
+            margin-bottom: 15px;
+        }
+        .status-pass {
+            color: #10B981;
+            font-weight: bold;
+        }
+        .status-fail {
+            color: #EF4444;
+            font-weight: bold;
+        }
+        .recommendation {
+            color: #3B82F6;
+            font-style: italic;
+            margin-left: 20px;
+        }
+        .metrics, .risk {
+            background-color: #E0E7FF;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .approval {
+            background-color: #E0E7FF;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="date"] {
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #60A5FA;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        select {
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #60A5FA;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #60A5FA;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+        }
+        tr:nth-child(even) {
+            background-color: #E0E7FF;
+        }
+        .priority-high { color: #EF4444; }
+        .priority-medium { color: #F59E0B; }
+        .priority-low { color: #10B981; }
+        .risk-high { background-color: #FEE2E2; }
+        .risk-medium { background-color: #FEF3C7; }
+        .risk-low { background-color: #D1FAE5; }
+    </style>
+    <script>
+        function showPage(pageId) {
+            const contents = document.getElementsByClassName('content');
+            for (let content of contents) {
+                content.classList.remove('active');
+            }
+            document.getElementById(pageId).classList.add('active');
+        }
+        // Load QA Report page by default
+        window.onload = function() {
+            showPage('qaReport');
+        };
+    </script>
+</head>
+<body>
+   <nav>
+        <a href="index.html" style="color: #ffffff; background-color: #007bff; padding: 6px 12px; border-radius: 4px; font-weight: bold; text-decoration: none;">QA Report</a>
+<a href="testingsummary.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Testing Summary</a>
+<a href="performanceTesting.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Performance Testing</a>
+
+    </nav>
+
+
+    <div id="qaReport" class="content active">
+        <h1>Testing Summary</h1>
+
+
+        <div class="section">
+            <h2>Testing Table</h2>
+            <table>
+                <tr>
+                    <th>Test Case ID</th>
+                    <th>Test Section</th>
+                    <th>Test Issue</th>
+                    <th>Functional Test Status</th>
+                    <th>Usability Test Status</th>
+                    <th>Final Tested Date</th>
+                    <th>Remark</th>
+                </tr>
+                <tr>
+                    <td>TC 1</td>
+                    <td>Pricing</td>
+                    <td>Price changing automatically</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 2</td>
+                    <td>Nutrition</td>
+                    <td>Calories changing automatically</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 3</td>
+                    <td>Availability</td>
+                    <td>Availability time</td>
+                    <td>
+                        <select>
+                            <option value="pass" selected>Pass</option>
+                            <option value="fail">Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass" selected>Pass</option>
+                            <option value="fail">Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 4</td>
+                    <td>Availability</td>
+                    <td>Availability time not reflecting after saving changes</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 5</td>
+                    <td>Image Management</td>
+                    <td>Image not reflecting after saving changes</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 6</td>
+                    <td>Ingredient Management</td>
+                    <td>Ingredients not reflecting after saving changes</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 7</td>
+                    <td>Pricing</td>
+                    <td>Edited price not reflecting after saving changes</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 8</td>
+                    <td>Nutrition</td>
+                    <td>Calories not reflecting after saving changes</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 9</td>
+                    <td>Menu Management</td>
+                    <td>Menu item can add without price</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 10</td>
+                    <td>User Interface</td>
+                    <td>Cursor incorrectly placed in the price input field during editing</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 11</td>
+                    <td>User Interface</td>
+                    <td>Placeholder sample text in input field should disappear when user start type</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 12</td>
+                    <td>Ingredient Management</td>
+                    <td>More Ingredients + icon cannot viewable hidden ingredients</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+                <tr>
+                    <td>TC 13</td>
+                    <td>Responsiveness</td>
+                    <td>Restaurant Admin page not mobile responsive</td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="pass">Pass</option>
+                            <option value="fail" selected>Fail</option>
+                            <option value="improvement">Improvement Needed</option>
+                        </select>
+                    </td>
+                    <td><input type="date" value="2025-07-23"></td>
+                    <td><input type="text" placeholder="Enter remark"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Report - Sufra OS</title>
+    <style>
+        body {
+            background-color: #F9FAFB;
+            color: #374151;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #3B82F6;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #60A5FA;
+        }
+        .content {
+            padding: 20px;
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        h1, h2 {
+            color: #1E40AF;
+            border-bottom: 2px solid #60A5FA;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #1E40AF;
+            margin-top: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #FFFFFF;
+            border-left: 4px solid #60A5FA;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .issue {
+            margin-bottom: 15px;
+        }
+        .status-pass {
+            color: #10B981;
+            font-weight: bold;
+        }
+        .status-fail {
+            color: #EF4444;
+            font-weight: bold;
+        }
+        .recommendation {
+            color: #3B82F6;
+            font-style: italic;
+            margin-left: 20px;
+        }
+        .risk {
+            background-color: #E0E7FF;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .metrics {
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .approval {
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="date"] {
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #60A5FA;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        select {
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #60A5FA;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #60A5FA;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+        }
+        tr:nth-child(even) {
+            background-color: #E0E7FF;
+        }
+        .priority-high { color: #EF4444; }
+        .priority-medium { color: #F59E0B; }
+        .priority-low { color: #10B981; }
+        .risk-high { background-color: #FEE2E2; }
+        .risk-medium { background-color: #FEF3C7; }
+        .risk-low { background-color: #D1FAE5; }
+    </style>
+    <script>
+        function showPage(pageId) {
+            const contents = document.getElementsByClassName('content');
+            for (let content of contents) {
+                content.classList.remove('active');
+            }
+            document.getElementById(pageId).classList.add('active');
+        }
+        // Load QA Report page by default
+        window.onload = function() {
+            showPage('qaReport');
+        };
+    </script>
+</head>
+<body>
+   <nav>
+        <a href="index.html" style="color: #ffffff; background-color: #007bff; padding: 6px 12px; border-radius: 4px; font-weight: bold; text-decoration: none;">QA Report</a>
+<a href="testingsummary.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Testing Summary</a>
+<a href="performanceTesting.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Performance Testing</a>
+
+    </nav>
+
+
+    <div id="qaReport" class="content active">
+        <h1>QA Report - Sufra OS</h1>
+
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>This document outlines the Quality Assurance (QA) findings for the current project as of 08:05 PM +0530 on Wednesday, July 23, 2025. The report details identified test issues, their current status, and recommendations for resolution to ensure project deliverables meet the required standards. The project aims to enhance the restaurant management application's reliability and user experience.</p>
+        </div>
+
+        <div class="section">
+            <h2>Project Details</h2>
+            <ul>
+                <li><strong>Project Name:</strong> Sufra OS</li>
+                <li><strong>Project ID:</strong> 2025-QA01</li>
+                <li><strong>Restaurant:</strong> Starbucks Coffee Menu</li>
+                <li><strong>QA Team:</strong> Dilmi Senevirathna</li>
+                <li><strong>Start Date:</strong> June 15, 2025</li>
+                <li><strong>Test Type:</strong> Functional, Usability, Responsiveness</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Scope</h2>
+            <p>The QA process covered core functionalities including menu management, pricing, ingredient tracking, image handling, and admin interface responsiveness across desktop and mobile platforms.</p>
+        </div>
+
+        <div class="section">
+            <h2>Test Issues and Status</h2>
+            <div class="issue">
+                <strong>TC 1: Price changing automatically</strong> - Status: <span class="status-fail">Fail</span>. The system unexpectedly alters price values without user input, leading to potential inaccuracies. 
+                <span class="recommendation">Recommendation: Implement a validation mechanism to lock price changes until explicitly confirmed by the user.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 2: Calories changing automatically</strong> - Status: <span class="status-fail">Fail</span>. Calorie values are being modified automatically, which may confuse users. 
+                <span class="recommendation">Recommendation: Disable automatic calorie updates and require manual entry or calculation confirmation.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 3: Availability time not reflecting after saving changes</strong> - Status: <span class="status-fail">Fail</span>. Changes to availability time fail to persist after saving, causing data inconsistency. 
+                <span class="recommendation">Recommendation: Debug the save function to ensure all changes are properly stored and reflected.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 4: Image not reflecting after saving changes</strong> - Status: <span class="status-fail">Fail</span>. Uploaded or edited images do not display after saving, impacting visual data integrity. 
+                <span class="recommendation">Recommendation: Verify the image upload and retrieval process to ensure proper file handling and display.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 5: Ingredients not reflecting after saving changes</strong> - Status: <span class="status-fail">Fail</span>. Edited ingredient details are not updated post-save, leading to outdated information. 
+                <span class="recommendation">Recommendation: Review the ingredient update logic to ensure changes are saved and displayed correctly.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 6: Edited price not reflecting after saving changes</strong> - Status: <span class="status-fail">Fail</span>. Price modifications are not saved or reflected, causing financial discrepancies. 
+                <span class="recommendation">Recommendation: Fix the price update pipeline to ensure edits are persisted and visible.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 7: Calories not reflecting after saving changes</strong> - Status: <span class="status-fail">Fail</span>. Calorie edits are not saved or displayed, affecting nutritional information accuracy. 
+                <span class="recommendation">Recommendation: Ensure the calorie update process mirrors the price update fix for consistency.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 8: Menu item can add without price</strong> - Status: <span class="status-fail">Fail</span>. Allowing menu items to be added without a price violates business rules. 
+                <span class="recommendation">Recommendation: Enforce a mandatory price field before saving a new menu item.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 9: Cursor incorrectly placed in the price input field during editing</strong> - Status: <span class="status-fail">Fail</span>. The cursor placement disrupts the editing experience for price values. 
+                <span class="recommendation">Recommendation: Adjust the input field focus logic to place the cursor at the end or selected text as per user expectation.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 10: Placeholder sample text in input field should disappear when user start type</strong> - Status: <span class="status-fail">Fail</span>. The placeholder text remains visible, confusing users during data entry. 
+                <span class="recommendation">Recommendation: Implement a standard input event listener to clear placeholder text on user input.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 11: More Ingredients + icon cannot viewable hidden ingredients</strong> - Status: <span class="status-fail">Fail</span>. The inability to view hidden ingredients via the + icon limits functionality. 
+                <span class="recommendation">Recommendation: Enhance the UI to ensure the + icon is accessible and reveals all ingredients.</span>
+            </div>
+            <div class="issue">
+                <strong>TC 12: Restaurant Admin page not mobile responsive</strong> - Status: <span class="status-fail">Fail</span>. The admin page does not adapt to mobile screen sizes, hindering usability on smaller devices. 
+                <span class="recommendation">Recommendation: Implement responsive design techniques, such as media queries and flexible layouts, to ensure compatibility across mobile platforms.</span>
+            </div>
+        </div>
+
+        <div class="section risk">
+            <h2>Priority Risk Table</h2>
+            <table>
+                <tr>
+                    <th>Test Case Number</th>
+                    <th>Issue</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Risk Level</th>
+                </tr>
+                <tr>
+                    <td>TC 1</td>
+                    <td>Price changing automatically</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-high">High</td>
+                    <td class="risk-high">High</td>
+                </tr>
+                <tr>
+                    <td>TC 2</td>
+                    <td>Calories changing automatically</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-high">High</td>
+                    <td class="risk-high">High</td>
+                </tr>
+                <tr>
+                    <td>TC 3</td>
+                    <td>Availability time</td>
+                    <td><span class="status-pass">Pass</span></td>
+                    <td class="priority-low">Low</td>
+                    <td class="risk-low">Low</td>
+                </tr>
+                <tr>
+                    <td>TC 4</td>
+                    <td>Availability time not reflecting after saving changes</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-high">High</td>
+                    <td class="risk-high">High</td>
+                </tr>
+                <tr>
+                    <td>TC 5</td>
+                    <td>Image not reflecting after saving changes</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="risk-medium">Medium</td>
+                </tr>
+                <tr>
+                    <td>TC 6</td>
+                    <td>Ingredients not reflecting after saving changes</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-high">High</td>
+                    <td class="risk-high">High</td>
+                </tr>
+                <tr>
+                    <td>TC 7</td>
+                    <td>Edited price not reflecting after saving changes</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-high">High</td>
+                    <td class="risk-high">High</td>
+                </tr>
+                <tr>
+                    <td>TC 8</td>
+                    <td>Calories not reflecting after saving changes</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-high">High</td>
+                    <td class="risk-high">High</td>
+                </tr>
+                <tr>
+                    <td>TC 9</td>
+                    <td>Menu item can add without price</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-high">High</td>
+                    <td class="risk-high">High</td>
+                </tr>
+                <tr>
+                    <td>TC 10</td>
+                    <td>Cursor incorrectly placed in the price input field during editing</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-low">Low</td>
+                    <td class="risk-low">Low</td>
+                </tr>
+                <tr>
+                    <td>TC 11</td>
+                    <td>Placeholder sample text in input field should disappear when user start type</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-low">Low</td>
+                    <td class="risk-low">Low</td>
+                </tr>
+                <tr>
+                    <td>TC 12</td>
+                    <td>More Ingredients + icon cannot viewable hidden ingredients</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="risk-medium">Medium</td>
+                </tr>
+                <tr>
+                    <td>TC 13</td>
+                    <td>Restaurant Admin page not mobile responsive</td>
+                    <td><span class="status-fail">Fail</span></td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="risk-medium">Medium</td>
+                </tr>
+            </table>
+        </div>
+    
+
+        <div class="section metrics">
+            <h2>Test Metrics</h2>
+            <ul>
+                <li><strong>Failed Test Cases:</strong> 13</li>
+            </ul>
+        </div>
+
+
+        <div class="section approval">
+            <h2>Approval</h2>
+            <ul>
+                <li><strong>QA Lead:</strong> <input type="text" placeholder="Enter QA Lead Name"></li>
+                <li><strong>Project Manager:</strong> [Name/Initials]</li>
+                <li><strong>Date:</strong> July 23, 2025</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>This QA report serves as a roadmap for resolving identified issues to enhance the application's reliability and user satisfaction. Prompt action on the recommendations will align the project with its quality objectives.</p>
+        </div>
+    </div>
+
+
+</body>
+</html>
