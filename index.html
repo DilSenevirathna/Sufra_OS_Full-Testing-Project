@@ -82,7 +82,7 @@
             padding: 10px;
             border-radius: 5px;
         }
-        input[type="text"], input[type="date"] {
+        input[type="text"], input[type="date"], input[type="file"] {
             padding: 5px;
             margin-left: 10px;
             border: 1px solid #60A5FA;
@@ -119,6 +119,38 @@
         .risk-high { background-color: #FEE2E2; }
         .risk-medium { background-color: #FEF3C7; }
         .risk-low { background-color: #D1FAE5; }
+        .thumbnail {
+            max-width: 100px;
+            max-height: 100px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #FFFFFF;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
     <script>
         function showPage(pageId) {
@@ -128,20 +160,64 @@
             }
             document.getElementById(pageId).classList.add('active');
         }
+
         // Load QA Report page by default
         window.onload = function() {
             showPage('qaReport');
+            setupImageUploadHandlers();
         };
+
+        function setupImageUploadHandlers() {
+            const inputs = document.querySelectorAll('input[type="file"]');
+            inputs.forEach(input => {
+                input.addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.className = 'thumbnail';
+                            img.onclick = function() { showModal(e.target.result); };
+                            const td = input.parentElement.nextElementSibling;
+                            td.innerHTML = '';
+                            td.appendChild(img);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+        }
+
+        function showModal(imageSrc) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <span class="close">&times;</span>
+                <img class="modal-content" src="${imageSrc}">
+            `;
+            document.body.appendChild(modal);
+            modal.style.display = 'flex';
+
+            const closeBtn = modal.querySelector('.close');
+            closeBtn.onclick = function() {
+                modal.remove();
+            };
+
+            modal.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.remove();
+                }
+            };
+        }
     </script>
 </head>
 <body>
-   <nav>
+    <nav>
         <a href="index.html" style="color: #ffffff; background-color: #007bff; padding: 6px 12px; border-radius: 4px; font-weight: bold; text-decoration: none;">QA Report</a>
-<a href="testingsummary.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Testing Summary</a>
-<a href="performancetesting.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Performance Testing</a>
-
+        <a href="testingsummary.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Testing Summary</a>
+        <a href="performancetesting.html" style="color: #ffffff; padding: 6px 12px; text-decoration: none;">Performance Testing</a>
     </nav>
-
 
     <div id="qaReport" class="content active">
         <h1>QA Report - Sufra OS</h1>
@@ -220,9 +296,100 @@
             </div>
             <div class="issue">
                 <strong>TC 13: Third portion visible with zero price</strong> - Status: <span class="status-fail">Fail</span>. Third input field shows zero price when only two are added. 
-                <span class="recommendation">Recommendation: Hide or disable third portion input if not needed.
-</span>
+                <span class="recommendation">Recommendation: Hide or disable third portion input if not needed.</span>
             </div>
+        </div>
+
+        <div class="section">
+            <h2>Image Proof Upload for Test Issues</h2>
+            <p>Upload screenshots or other image evidence for each test issue to document the observed behavior.</p>
+            <table>
+                <tr>
+                    <th>Test Case Number</th>
+                    <th>Issue</th>
+                    <th>Upload Image Proof</th>
+                    <th>Uploaded Image</th>
+                </tr>
+                <tr>
+                    <td>TC 1</td>
+                    <td>Price changing automatically</td>
+                    < Locals Only: You are not allowed to use form tags due to sandbox restrictions >
+                    <td><input type="file" accept="image/*" name="tc1-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 2</td>
+                    <td>Calories changing automatically</td>
+                    <td><input type="file" accept="image/*" name="tc2-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 3</td>
+                    <td>Availability time not reflecting after saving changes</td>
+                    <td><input type="file" accept="image/*" name="tc3-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 4</td>
+                    <td>Image not reflecting after saving changes</td>
+                    <td><input type="file" accept="image/*" name="tc4-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 5</td>
+                    <td>Ingredients not reflecting after saving changes</td>
+                    <td><input type="file" accept="image/*" name="tc5-image MSMTP Error: Server responded with: 451 4.3.0 Temporary lookup failure, please try again later.></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 6</td>
+                    <td>Edited price not reflecting after saving changes</td>
+                    <td><input type="file" accept="image/*" name="tc6-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 7</td>
+                    <td>Calories not reflecting after saving changes</td>
+                    <td><input type="file" accept="image/*" name="tc7-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 8</td>
+                    <td>Menu item can add without price</td>
+                    <td><input type="file" accept="image/*" name="tc8-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 9</td>
+                    <td>Cursor incorrectly placed in the price input field during editing</td>
+                    <td><input type="file" accept="image/*" name="tc9-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 10</td>
+                    <td>Placeholder sample text in input field should disappear when user start type</td>
+                    <td><input type="file" accept="image/*" name="tc10-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 11</td>
+                    <td>More Ingredients + icon cannot viewable hidden ingredients</td>
+                    <td><input type="file" accept="image/*" name="tc11-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 12</td>
+                    <td>Restaurant Admin page not mobile responsive</td>
+                    <td><input type="file" accept="image/*" name="tc12-image"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>TC 13</td>
+                    <td>Third portion visible with zero price</td>
+                    <td><input type="file" accept="image/*" name="tc13-image"></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
 
         <div class="section risk">
@@ -328,7 +495,6 @@
                 </tr>
             </table>
         </div>
-    
 
         <div class="section metrics">
             <h2>Test Metrics</h2>
@@ -336,7 +502,6 @@
                 <li><strong>Failed Test Cases:</strong> 13</li>
             </ul>
         </div>
-
 
         <div class="section approval">
             <h2>Approval</h2>
@@ -352,7 +517,5 @@
             <p>This QA report serves as a roadmap for resolving identified issues to enhance the application's reliability and user satisfaction. Prompt action on the recommendations will align the project with its quality objectives.</p>
         </div>
     </div>
-
-
 </body>
 </html>
